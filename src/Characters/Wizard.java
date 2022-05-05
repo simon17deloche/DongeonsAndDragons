@@ -1,6 +1,6 @@
 package Characters;
 
-class Wizard extends Character { public Wizard() {
+public class Wizard extends Character { public Wizard() {
     super(3, 6, 8, 15);
 }
 

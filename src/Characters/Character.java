@@ -2,11 +2,11 @@ package Characters;
 
 public class Character {
 
-    String Name;
-    int Health;
-    int MaxHealth;
-    int Strength;
-    int MaxStrength;
+    private String Name;
+    private int Health;
+    private int MaxHealth;
+    private int Strength;
+    private int MaxStrength;
 
     public Character(int Health, int MaxHealth, int Strength, int MaxStrength) {
 
