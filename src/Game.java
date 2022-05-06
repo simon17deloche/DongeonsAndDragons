@@ -1,27 +1,38 @@
 import Characters.Warrior;
 import Characters.Wizard;
-
+import Characters.Character;
 import java.util.Scanner;
 public class Game {
-
+    int L = 0;
     public static void main(String[] args) {
         String champ;
-        Character stats;
+        String nomClass = null;
+        Character stats = null;
         Scanner clavier = new Scanner(System.in);
-        System.out.println("Saisir votre classe : ");
-
-        System.out.println("Available classes are : Warrior and Wizard");
-        System.out.println("If you want to leave, please write leave");
+        System.out.println("Voici les classes disponible : : Warrior et Wizard");
+        System.out.println("Tapez 'Quitter' pour fermer le jeu.");
         champ = clavier.nextLine();
         System.out.println("Vous avez choisi : " + champ);
-        if (champ.equals("Warrior")|| champ.equals("warrior")) {
-            System.out.println("Warrior");
-
-        } else if (champ.equals("Wizard") || champ.equals("wizard")) {
-            System.out.println("Wizard");
-        } else if (champ.equals("Leave") || champ.equals("leave")) {
-            System.out.println("You left the game.");
+        if (champ.equalsIgnoreCase("Warrior")) {
+            stats = new Warrior();
+            System.out.println("----------------------------");
+            nomClass = "Guerrier(e)";
+            System.out.println("PV : " + stats.getHealth() + "\n" + "PV MAX : " + stats.getMaxHealth() + "\n" + "Force : " + stats.getStrength() + "\n" + "Force MAX : " + stats.getMaxStrength());
+            System.out.println("----------------------------");
+        } else if (champ.equalsIgnoreCase("Wizard")) {
+            System.out.println("Voici les Stats de votre personnage : ");
+            stats = new Wizard();
+            System.out.println("----------------------------");
+            nomClass = "Magicien(ne)";
+            System.out.println("PV : " + stats.getHealth() + "\n" + "PV MAX : " + stats.getMaxHealth() + "\n" + "Force : " + stats.getStrength() + "\n" + "Force MAX : " + stats.getMaxStrength());
+            System.out.println("----------------------------");
+        } else if (champ.equalsIgnoreCase("Quitter")) {
+            System.out.println("Vous avez quitté(e) le jeu.");
+        } else {
+            System.out.println("Ce n'est pas une réponse valide");
         }
-
+        System.out.println("Quel est votre nom ?");
+        champ = clavier.nextLine();
+        System.out.println("Bienvenue dans l'aventure jeune " + nomClass + " nommé(e) " + champ);
     }
 }
