@@ -3,23 +3,25 @@ import Characters.Wizard;
 import Characters.Character;
 import java.util.Scanner;
 public class Game {
-
     Character character;
     Scanner clavier;
-
+    Board plateau = new Board();
+    int stocker = plateau.getI();
     public static void main(String[] args) {
         Game starter = new Game();
         starter.start();
     }
-
     Game() {
         clavier = new Scanner(System.in);
     }
     public void start() {
+        String champ;
         gameStarterMessages();
         classSelector();
         gameLauncher();
-        playAgain();
+        if (64 <= plateau.getI()) {
+            playAgain();
+        }
     }
     private void gameStarterMessages(){
         System.out.println("\n" + "Bienvenue dans Donjons & Dragons !" + "\n");
@@ -58,15 +60,26 @@ public class Game {
     }
     private void gameLauncher() {
         String champ;
-        Board plateau = new Board();
         System.out.println("Voulez-vous démarrer la partie ? ");
         champ = clavier.nextLine();
         if (champ.equalsIgnoreCase("oui")) {
             System.out.println("Le jeu débute !");
-            String test = String.valueOf(plateau.playRound());
-            System.out.println(test);
+            test();
         } else if (champ.equalsIgnoreCase("non")) {
             start();
+        }
+    }
+    private void test() {
+        String champ;
+        while (plateau.getI() <= 64) {
+            System.out.println("Que voulez-vous vous faire ?");
+            System.out.println("Vous pouvez : Lancer votre dé" + "\n");
+            champ = clavier.nextLine();
+            if (champ.equalsIgnoreCase("dé")) {
+                plateau.playRound();
+            } else {
+                System.out.println("non");
+            }
         }
     }
     private void gameStopper() {
@@ -74,6 +87,7 @@ public class Game {
         System.out.println("Vous avez mis fin à la partie.");
     }
     private void gameRestarter() {
+        stocker = stocker * 0;
         start();
     }
     private void playAgain() {

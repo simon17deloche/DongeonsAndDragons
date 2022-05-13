@@ -5,7 +5,8 @@ public class Board {
     private String[] cases;
     private int pose;
     private int dice;
-    int i = 1;
+    private int i = 0;
+    private int stock;
     String[] tab = new String[64];
     //-------------------------------------------------(Constructors)--------------------------------------------------
     public Board() {
@@ -39,15 +40,15 @@ public class Board {
         this.cases = new String[64];
         this.pose = 1;
     }
-    public int playRound() {
-        while (i < tab.length) {
+    public void playRound() {
+        if (i < tab.length) {
             int dice = (int) (Math.random() * 6) + 1;
+            stock = stock + dice;
             System.out.println("Vous lancez le dé, vous obtenez un " + dice);
-            i+= dice;
-            System.out.println("Vous êtes actuellement à la case " + i);
+            i += dice;
+            int kase = i +1;
+            System.out.println("Vous êtes actuellement à la case " + kase);
         }
-        System.out.println("Félicitations, vous avez gagné !");
-        return i;
     }
 }
 
