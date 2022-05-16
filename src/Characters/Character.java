@@ -1,14 +1,10 @@
 package Characters;
 public abstract class Character {
-    private String Name;
     private int Health;
     private int MaxHealth;
     private int Strength;
     private int MaxStrength;
     //----------------------------------------------------(Setters)----------------------------------------------------
-    public void setName(String name) {
-        Name = name;
-    }
     public void setHealth(int health) {
         Health = health;
     }
@@ -22,7 +18,6 @@ public abstract class Character {
         MaxStrength = maxStrength;
     }
     //----------------------------------------------------(Getters)----------------------------------------------------
-    public String getName() {return Name;}
     public int getHealth() {return Health;}
     public int getMaxHealth() {return MaxHealth;}
     public int getStrength() {return Strength;}
@@ -34,4 +29,3 @@ public abstract class Character {
         this.MaxStrength = MaxStrength;
     }
 }
-

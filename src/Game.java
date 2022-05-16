@@ -15,6 +15,8 @@ public class Game {
         clavier = new Scanner(System.in);
     }
     public void start() {
+        //int calc = plateau.mathsCalculator();
+        //System.out.println(calc);
         String champ;
         gameStarterMessages();
         classSelector();
@@ -87,7 +89,6 @@ public class Game {
         System.out.println("Vous avez mis fin à la partie.");
     }
     private void gameRestarter() {
-        stocker = stocker * 0;
         start();
     }
     private void playAgain() {
