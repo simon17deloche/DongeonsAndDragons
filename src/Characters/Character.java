@@ -4,6 +4,12 @@ public abstract class Character {
     private int MaxHealth;
     private int Strength;
     private int MaxStrength;
+    public Character(int Health, int MaxHealth, int Strength, int MaxStrength) {
+        this.Health = Health;
+        this.MaxHealth = MaxHealth;
+        this.Strength = Strength;
+        this.MaxStrength = MaxStrength;
+    }
     //----------------------------------------------------(Setters)----------------------------------------------------
     public void setHealth(int health) {
         Health = health;
@@ -22,10 +28,4 @@ public abstract class Character {
     public int getMaxHealth() {return MaxHealth;}
     public int getStrength() {return Strength;}
     public int getMaxStrength() {return MaxStrength;}
-    public Character(int Health, int MaxHealth, int Strength, int MaxStrength) {
-        this.Health = Health;
-        this.MaxHealth = MaxHealth;
-        this.Strength = Strength;
-        this.MaxStrength = MaxStrength;
-    }
 }
