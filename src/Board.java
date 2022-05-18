@@ -23,6 +23,9 @@ public class Board {
     public void playRound() {
         Dice roundDice = new Dice();
         roundDice.Throw();
+        roundDice.Throw();
+        roundDice.Throw();
+        roundDice.Throw();
     }
     //}
     private void mathsCalculator() {

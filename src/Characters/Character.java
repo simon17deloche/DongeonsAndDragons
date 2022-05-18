@@ -11,18 +11,10 @@ public abstract class Character {
         this.MaxStrength = MaxStrength;
     }
     //----------------------------------------------------(Setters)----------------------------------------------------
-    public void setHealth(int health) {
-        Health = health;
-    }
-    public void setMaxHealth(int maxHealth) {
-        MaxHealth = maxHealth;
-    }
-    public void setStrength(int strength) {
-        Strength = strength;
-    }
-    public void setMaxStrength(int maxStrength) {
-        MaxStrength = maxStrength;
-    }
+    public void setHealth(int health) {Health = health;}
+    public void setMaxHealth(int maxHealth) {MaxHealth = maxHealth;}
+    public void setStrength(int strength){Strength = strength;}
+    public void setMaxStrength(int maxStrength) {MaxStrength = maxStrength;}
     //----------------------------------------------------(Getters)----------------------------------------------------
     public int getHealth() {return Health;}
     public int getMaxHealth() {return MaxHealth;}

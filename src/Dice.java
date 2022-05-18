@@ -1,6 +1,7 @@
 public class Dice {
     private int i;
     private int dice;
+    private Board plateau = new Board();
 
     public Dice () {
         this.i = 0;
@@ -14,4 +15,12 @@ public class Dice {
         System.out.println("Vous êtes actuellement à la case " + kase);
         System.out.println("Vous êtes sur la case " + kase);
     }
+//    public void Calc() {
+//        dice = (int) (Math.random() * 3) + 1;
+//        if (i < plateau.getCases().length) {
+//            System.out.println("bonjour");
+//        } else {
+//            System.out.println("pas bonjour");
+//        }
+//    }
 }
