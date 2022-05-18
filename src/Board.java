@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import Board.*;
 public class Board {
     //--------------------------------------------------(Attributes)---------------------------------------------------
     private String[] types;
@@ -6,8 +7,9 @@ public class Board {
     private int pose;
     private int i = 0;
     private int j = 0;
-    private String[] tab2 = new String[]{"empty", "monster", "loot"};
-    private String[] tab1 = new String[64];
+    private int comp = 0;
+    private final String[] gameBoard = new String[64];
+    Dice roundDice = new Dice();
     //-------------------------------------------------(Constructors)--------------------------------------------------
     public Board() {this.generate();}
     //----------------------------------------------(Functions / Methods)----------------------------------------------
@@ -18,18 +20,32 @@ public class Board {
     }
     public static void main(String[] args) {
         Board tester = new Board();
-        tester.playRound();
+        tester.boardGenerator();
+        //tester.printer();
     }
     public void playRound() {
-        Dice roundDice = new Dice();
-        roundDice.Throw();
-        roundDice.Throw();
-        roundDice.Throw();
-        roundDice.Throw();
+
     }
     //}
-    private void mathsCalculator() {
+    public void printer() {
 
+    }
+    private void boardGenerator() {
+        Cell cell;
+        while (comp < gameBoard.length) {
+            int stockBoardFiller = roundDice.Calc();
+            if (stockBoardFiller == 1) {
+                cell = new Empty();
+                System.out.println(cell.getDesc());
+            } else if (stockBoardFiller == 2) {
+                cell = new Monster();
+                System.out.println(cell.getDesc());
+            } else if (stockBoardFiller == 3) {
+                cell = new Loot();
+                System.out.println(cell.getDesc());
+            }
+            comp = comp + 1;
+        }
     }
     //----------------------------------------------------(Getters)----------------------------------------------------
     public String[] getCases() {return cases;}

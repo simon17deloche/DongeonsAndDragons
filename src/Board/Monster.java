@@ -2,5 +2,5 @@ package Board;
 
 public class Monster extends Cell{
 
-    public Monster(String type) {super("Monster","Ceci est une case monstre !");}
+    public Monster() {super("Monster","Ceci est une case monstre !");}
 }
