@@ -7,7 +7,6 @@ public class Board {
     private int pose;
     private int i = 0;
     private int j = 0;
-    private int comp = 0;
     private final String[] gameBoard = new String[64];
     Dice roundDice = new Dice();
     //-------------------------------------------------(Constructors)--------------------------------------------------
@@ -32,6 +31,7 @@ public class Board {
     }
     private void boardGenerator() {
         Cell cell;
+        int comp = 0;
         while (comp < gameBoard.length) {
             int stockBoardFiller = roundDice.Calc();
             if (stockBoardFiller == 1) {
@@ -44,7 +44,9 @@ public class Board {
                 cell = new Loot();
                 System.out.println(cell.getDesc());
             }
+            ;
             comp = comp + 1;
+            j++;
         }
     }
     //----------------------------------------------------(Getters)----------------------------------------------------
