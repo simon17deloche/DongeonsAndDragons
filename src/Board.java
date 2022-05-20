@@ -5,66 +5,82 @@ public class Board {
     private String[] types;
     private String[] cases;
     private int pose;
-    private int i = 0;
-    private int j = 0;
+    private int randomCalc;
     private final String[] gameBoard = new String[64];
-    Dice roundDice = new Dice();
     //-------------------------------------------------(Constructors)--------------------------------------------------
     public Board() {this.generate();}
     //----------------------------------------------(Functions / Methods)----------------------------------------------
     private void generate() {
         this.types = new String[]{"empty", "monster", "loot"};
         this.cases = new String[64];
-        this.pose = 1;
+        this.pose = 0;
     }
+
     public static void main(String[] args) {
         Board tester = new Board();
-        tester.boardGenerator();
+        //tester.boardMoovement();
         //tester.printer();
     }
-    public void playRound() {
-
-    }
-    //}
-    public void printer() {
-
-    }
-    private void boardGenerator() {
-        Cell cell;
-        int comp = 0;
-        while (comp < gameBoard.length) {
-            int stockBoardFiller = roundDice.Calc();
-            if (stockBoardFiller == 1) {
-                cell = new Empty();
-                System.out.println(cell.getDesc());
-            } else if (stockBoardFiller == 2) {
-                cell = new Monster();
-                System.out.println(cell.getDesc());
-            } else if (stockBoardFiller == 3) {
-                cell = new Loot();
-                System.out.println(cell.getDesc());
-            }
-            ;
-            comp = comp + 1;
-            j++;
+    public int boardCalc() {
+        int ret = 0;
+        randomCalc = (int) (Math.random() * 100) + 1;
+        if (randomCalc >= 1 && randomCalc <= 24) {
+            ret = 1;
+            // Case Empty
+            // 25 % de chance
+        } else if (randomCalc >= 25 && randomCalc <= 59) {
+            ret = 2;
+            // Case Monster
+            // 35 % de chance
+        } else if (randomCalc >= 60 && randomCalc <= 80) {
+            ret = 3;
+            // Case Loot
+            // 20 % de chance
+        } else if (randomCalc >= 81 && randomCalc <= 100) {
+            ret = 4;
+            // Case Potion
+            // 20 % de chance
         }
+
+        return ret;
     }
-    //----------------------------------------------------(Getters)----------------------------------------------------
-    public String[] getCases() {return cases;}
-    public String[] getTypes() {return types;}
-    public int getPose() {return pose;}
-    public int getI() {return i;}
-    public int getJ() {return j;}
-    //public String[] getTab() {return tab;}
-    //----------------------------------------------------(Setters)----------------------------------------------------
-    public void setCases(String[] cases) {
-        this.cases = cases;
+
+    //    public void setI(int i) {this.position = i;}
+//    public void setJ(int j) {this.j = j;}
+//    public void setDice(int dice) {this.dice = dice;}
+    public void boardGenerator() {
+        try {
+            Cell cell;
+            int comp = 0;
+            while (comp < gameBoard.length) {
+                int stockBoardFiller = boardCalc();
+                if (stockBoardFiller == 1) {
+                    cell = new Empty();
+                    gameBoard[comp] = cell.getType();
+                } else if (stockBoardFiller == 2) {
+                    cell = new Monster();
+                    gameBoard[comp] = cell.getType();
+                } else if (stockBoardFiller == 3) {
+                    cell = new Loot();
+                    gameBoard[comp] = cell.getType();
+                } else if (stockBoardFiller == 4) {
+                    cell = new Potion();
+                    gameBoard[comp] = cell.getType();
+                }
+                comp = comp + 1;
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur");
+        }
+        System.out.println(Arrays.toString(gameBoard));
     }
-    public void setTypes(String[] types) {this.types = types;}
-    public void setPose(int pose) {this.pose = pose;}
-    public void setI(int i) {this.i = i;}
-    public void setJ(int j) {this.j = j;}
-    //public void setTab(String[] tab) {this.tab = tab;}
+
+    public void boardMoovement() {
+    }
 }
+    //----------------------------------------------------(Getters)----------------------------------------------------
+
+    //----------------------------------------------------(Setters)----------------------------------------------------
+
 
 

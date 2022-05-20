@@ -1,26 +1,22 @@
 import Board.*;
 public class Dice {
-    private int i;
-    private int j;
+    private int position;
     private int dice;
-
     public Dice () {
-        this.i = 0;
-        this.j = 0;
+        this.position = 0;
         this.dice = 0;
     }
-    public int Throw() {
+    public void launchDice() {
         dice = (int) (Math.random() * 6) + 1;
         System.out.println("Vous lancez le dé, vous obtenez un " + dice);
-        i += dice;
-        int kase = i + 1;
+        position += dice;
+        int kase = position + 1;
         System.out.println("Vous êtes actuellement à la case " + kase);
         System.out.println("Vous êtes sur la case " + kase);
-        return kase;
+        System.out.println(position);
     }
-    public int Calc() {
-        dice = (int) (Math.random() * 3) + 1;
-        System.out.println("L'aléatoire à choisi le chiffre " + dice);
-        return dice;
-    }
+
+    public int getposition() {return position;}
+//    public int getJ() {return j;}
+//    public int getDice() {return dice;}
 }

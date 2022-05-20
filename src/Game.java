@@ -6,7 +6,7 @@ public class Game {
     Character character;
     Scanner clavier;
     Board plateau = new Board();
-    int stocker = plateau.getI();
+    Dice roundDice = new Dice();
     public static void main(String[] args) {
         Game starter = new Game();
         starter.start();
@@ -18,10 +18,11 @@ public class Game {
         String champ;
         gameStarterMessages();
         classSelector();
+        plateau.boardGenerator();
         gameLauncher();
-        if (64 <= plateau.getI()) {
-            playAgain();
-        }
+//        if (plateau.getI() <= 64) {
+//            playAgain();
+//        }
     }
     private void gameStarterMessages(){
         System.out.println("\n" + "Bienvenue dans Donjons & Dragons !" + "\n");
@@ -71,12 +72,15 @@ public class Game {
     }
     private void test() {
         String champ;
-        while (plateau.getI() <= 64) {
+        while (roundDice.getposition() <= 64) {
             System.out.println("Que voulez-vous vous faire ?");
             System.out.println("Vous pouvez : Lancer votre dé" + "\n");
+            System.out.println(roundDice.getposition());
+            System.out.println(plateau.boardGenerator(););
+//            System.out.println(plateau.getI());
             champ = clavier.nextLine();
             if (champ.equalsIgnoreCase("dé")) {
-                plateau.playRound();
+                roundDice.launchDice();
             } else {
                 System.out.println("non");
             }
