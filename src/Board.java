@@ -1,20 +1,14 @@
 import java.util.Arrays;
 import Board.*;
+import Characters.Character;
+
 public class Board {
     //--------------------------------------------------(Attributes)---------------------------------------------------
-    private String[] types;
-    private String[] cases;
-    private int pose;
     private int randomCalc;
-    private final String[] gameBoard = new String[64];
+    private final Cell[] gameBoard = new Cell[64];
     //-------------------------------------------------(Constructors)--------------------------------------------------
-    public Board() {this.generate();}
+    public Board() {}
     //----------------------------------------------(Functions / Methods)----------------------------------------------
-    private void generate() {
-        this.types = new String[]{"empty", "monster", "loot"};
-        this.cases = new String[64];
-        this.pose = 0;
-    }
 
     public static void main(String[] args) {
         Board tester = new Board();
@@ -50,22 +44,17 @@ public class Board {
 //    public void setDice(int dice) {this.dice = dice;}
     public void boardGenerator() {
         try {
-            Cell cell;
             int comp = 0;
             while (comp < gameBoard.length) {
                 int stockBoardFiller = boardCalc();
                 if (stockBoardFiller == 1) {
-                    cell = new Empty();
-                    gameBoard[comp] = cell.getType();
+                    gameBoard[comp] = new Empty();
                 } else if (stockBoardFiller == 2) {
-                    cell = new Monster();
-                    gameBoard[comp] = cell.getType();
+                    gameBoard[comp] = new Monster();
                 } else if (stockBoardFiller == 3) {
-                    cell = new Loot();
-                    gameBoard[comp] = cell.getType();
+                    gameBoard[comp] = new Loot();
                 } else if (stockBoardFiller == 4) {
-                    cell = new Potion();
-                    gameBoard[comp] = cell.getType();
+                    gameBoard[comp] = new Potion();
                 }
                 comp = comp + 1;
             }
@@ -75,7 +64,11 @@ public class Board {
         System.out.println(Arrays.toString(gameBoard));
     }
 
-    public void boardMoovement() {
+    public void boardMoovement(Character character, int position) {
+        Cell cell = this.gameBoard[position];
+        System.out.println("Le héro est arrivé en case " + position + ": " + cell.getType());
+
+        cell.interaction(character);
     }
 }
     //----------------------------------------------------(Getters)----------------------------------------------------

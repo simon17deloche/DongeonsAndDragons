@@ -1,5 +1,10 @@
 package Board;
 
+import Characters.Character;
+
+/**
+ *
+ */
 public abstract class Cell {
 
     /**
@@ -9,12 +14,28 @@ public abstract class Cell {
     private String desc;
 
     //Constructor(s)
+
+    /**
+     * Public constructor
+     * @param type String type.
+     * @param desc String desc.
+     */
     public Cell(String type, String desc) {
         this.type = type;
         this.desc = desc;
     }
     // Getters & Setters
+
+    /**
+     * Here's the getter for the type.
+     * @return type.
+     */
     public String getType() {return type;}
+
+    /**
+     * Here's the getter for the description.
+     * @return desc.
+     */
     public String getDesc() {return desc;}
 
     /**
@@ -27,4 +48,17 @@ public abstract class Cell {
      */
     public void setDesc(String desc) {this.desc = desc;}
 
+    /**
+     * @param character here's the setter for the character of character
+     */
+    public abstract void interaction(Character character);
+
+    /**
+     * @return the interaction
+     */
+
+    @Override
+    public String toString() {
+        return type;
+    }
 }
