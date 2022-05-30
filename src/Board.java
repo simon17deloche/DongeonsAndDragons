@@ -3,8 +3,6 @@ import Board.*;
 import Characters.Character;
 
 public class Board {
-    //--------------------------------------------------(Attributes)---------------------------------------------------
-    private int randomCalc;
     private final Cell[] gameBoard = new Cell[64];
     //-------------------------------------------------(Constructors)--------------------------------------------------
     public Board() {}
@@ -17,7 +15,8 @@ public class Board {
     }
     public int boardCalc() {
         int ret = 0;
-        randomCalc = (int) (Math.random() * 100) + 1;
+        //--------------------------------------------------(Attributes)---------------------------------------------------
+        int randomCalc = (int) (Math.random() * 100) + 1;
         if (randomCalc >= 1 && randomCalc <= 24) {
             ret = 1;
             // Case Empty

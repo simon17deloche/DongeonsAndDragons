@@ -9,8 +9,6 @@ public class Potion extends Cell{
     /**
      * This is the constructor, used to fill the data with this class
      */
-
-
     public Potion() {super("Potion", "Elle peut vous permettre de vous rénégérer de la vie !");}
 
     /**

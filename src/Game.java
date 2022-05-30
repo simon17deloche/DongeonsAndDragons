@@ -38,9 +38,6 @@ public class Game {
         classSelector();
         plateau.boardGenerator();
         gameLauncher();
-//        if (plateau.getI() <= 64) {
-//            playAgain();
-//        }
     }
 
     /**

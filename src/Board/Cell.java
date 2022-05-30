@@ -3,7 +3,7 @@ package Board;
 import Characters.Character;
 
 /**
- *
+ * This is a public abstract class named Cell.
  */
 public abstract class Cell {
 
